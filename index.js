@@ -1,6 +1,7 @@
 require('dotenv').load(); // Load environment variables
 
-var OAuth = require('oauth');
+var child_process = require('child_process'),
+    OAuth         = require('oauth');
 
 function fetchBeats1Track(callback) {
   // Define configuration
@@ -31,6 +32,23 @@ function fetchBeats1Track(callback) {
   )
 }
 
-fetchBeats1Track(function(err, track) {
-  console.log(track);
+function fetchiTunesTrack(callback) {
+  child_process.execFile("osascript", ["itunes.scpt"], function(err, track) {
+    callback(err, track.trim());
+  });
+}
+
+fetchiTunesTrack(function(err, iTunesTrack) {
+  if (err) {
+    console.log("Error:", err);
+  } else if (iTunesTrack != "") {
+    console.log(iTunesTrack);
+  }
+  fetchBeats1Track(function(err, beatsTrack) {
+    if (err) {
+      console.log("Error:", err);
+    } else {
+      console.log(beatsTrack);
+    }
+  });
 });
