@@ -1,0 +1,12 @@
+{
+  "name": "beats-status",
+  "version": "1.1.0",
+  "description": "Fetches the latest tweet from @beats1plays",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^1.2.0",
+    "oauth": "^0.9.13",
+  },
+  "author": "Arne Bahlo <hallo@arne.me>",
+  "license": "MIT"
+}
