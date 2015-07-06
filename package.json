@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "^1.2.0",
+    "ent": "^2.2.0",
     "oauth": "^0.9.13"
   },
   "author": "Arne Bahlo <hallo@arne.me>",

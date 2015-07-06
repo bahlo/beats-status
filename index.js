@@ -1,7 +1,8 @@
 require('dotenv').load(); // Load environment variables
 
 var child_process = require('child_process'),
-    OAuth         = require('oauth');
+    OAuth         = require('oauth'),
+    ent           = require('ent');
 
 function fetchBeats1Track(callback) {
   // Define configuration
@@ -25,10 +26,12 @@ function fetchBeats1Track(callback) {
       if (e != null) {
         callback('Error: ' + e);
       } else {
-        var track = JSON.parse(data)[0].text
-          .replace('#beats1', '')
-          .replace(/\shttps?:\/\/t.co\/\w+/, '');
-        callback(null, prefix + track);
+        var track = ent.decode(
+          JSON.parse(data)[0].text
+            .replace('#beats1', '')
+            .replace(/\shttps?:\/\/t.co\/\w+/, '')
+        );
+        callback(null, prefix + track.trim());
       }
     }
   )
