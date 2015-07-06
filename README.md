@@ -61,7 +61,7 @@ For the lazy: `cd $HOME/scripts/beats-status && /usr/local/bin/node index.js`
 _Note: The Twitter API Rate Limit for search is 180 requests per 15 minutes, so
 don't set the refresh time below 6 seconds to avoid exceeding it._
 
-#### Ready to go
+## Ready to go
 
 Now your menubar shows the currently playing Beats 1 track or your currently
 playing iTunes track. If you click on the iTunes track, you can quickly check
@@ -73,7 +73,7 @@ what's playing on Beats 1.
 
 ![iTunes expanded](https://cloud.githubusercontent.com/assets/1725839/8518332/3a9bf024-23c9-11e5-9f52-a0ec49b92c60.png)
 
-#### Extended use
+## Extended use
 
 If you want to hide all features to save space, opt in by setting
 `HIDE_FEATURES=true` in your `.env`-file _(experimental)_.
