@@ -56,7 +56,10 @@ ACCESS_TOKEN_SECRET=<your access token secret>
 
 ![TextBar Setup](https://cloud.githubusercontent.com/assets/1725839/8518127/890145a4-23c7-11e5-8457-f6e8366c6c88.png)
 
-Script: `cd $HOME/scripts/beats-status && /usr/local/bin/node index.js`
+For the lazy: `cd $HOME/scripts/beats-status && /usr/local/bin/node index.js`
+
+_Note: The Twitter API Rate Limit for search is 180 requests per 15 minutes, so
+don't set the refresh time below 6 seconds to avoid exceeding it._
 
 #### Ready to go
 
