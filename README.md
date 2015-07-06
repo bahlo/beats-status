@@ -6,6 +6,10 @@ Shows the currently playing track in
 [Beats 1](https://www.apple.com/de/music/radio/) or your currently playing
 iTunes track in your Menubar.
 
+We're parsing the latest tweet from
+[@beats1plays](https://twitter.com/beats1plays), so thanks to @callumj for
+this great service.
+
 ## Installation
 
 You'll need [TextBar](http://www.richsomerfield.com/apps/) (currently 2.99 $)
@@ -65,6 +69,11 @@ what's playing on Beats 1.
 ![iTunes track](https://cloud.githubusercontent.com/assets/1725839/8518308/0973e9d4-23c9-11e5-8383-f57d3f3a0dad.png)
 
 ![iTunes expanded](https://cloud.githubusercontent.com/assets/1725839/8518332/3a9bf024-23c9-11e5-9f52-a0ec49b92c60.png)
+
+#### Extended use
+
+If you want to hide all features to save space, opt in by setting
+`HIDE_FEATURES=true` in your `.env`-file _(experimental)_.
 
 ## License
 

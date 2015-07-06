@@ -4,6 +4,28 @@ var child_process = require('child_process'),
     OAuth         = require('oauth'),
     ent           = require('ent');
 
+function hideFeatures(track) {
+  // Replace (feat*), [feat*]
+  track = track
+    .replace(/\s\(feat[^\)]+\)/i, '')
+    .replace(/\s\[feat[^\]]+\]/i, '');
+
+  // Replace inline "feat*"
+  var parts = track.split(' - ', 2);
+  if (parts.length == 2) {
+    var song      = parts[0],
+        artist    = parts[1],
+        featRegex = /\sfeat.*$/;
+
+    song   = song.replace(featRegex, '');
+    artist = artist.replace(featRegex, '');
+
+    track = song + ' - ' + artist;
+  }
+
+  return track;
+}
+
 function fetchBeats1Track(callback) {
   // Define configuration
   var oauth = new OAuth.OAuth(
@@ -31,6 +53,11 @@ function fetchBeats1Track(callback) {
             .replace('#beats1', '')
             .replace(/\shttps?:\/\/t.co\/\w+/, '')
         );
+
+        if (process.env.HIDE_FEATURES) {
+          track = hideFeatures(track);
+        }
+
         callback(null, prefix + track.trim());
       }
     }
@@ -39,7 +66,12 @@ function fetchBeats1Track(callback) {
 
 function fetchiTunesTrack(callback) {
   child_process.execFile("osascript", ["itunes.scpt"], function(err, track) {
-    callback(err, track.trim());
+    track = track.trim(); // Remove \n
+    if (process.env.HIDE_FEATURES) {
+      track = hideFeatures(track);
+    }
+
+    callback(err, track);
   });
 }
 
