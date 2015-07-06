@@ -24,6 +24,10 @@ $ brew install node
 
 `git clone git@github.com:bahlo/beats-status.git $HOME/scripts/beats-status`
 
+#### Install dependencies
+
+`cd $HOME/scripts/beats-status && npm install`
+
 #### Create Twitter application
 
 1. Go to https://apps.twitter.com
