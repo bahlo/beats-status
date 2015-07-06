@@ -24,7 +24,7 @@ function fetchBeats1Track(callback) {
       var prefix = "ⓑ ";
 
       if (e != null) {
-        callback('Error: ' + e);
+        callback(e);
       } else {
         var track = ent.decode(
           JSON.parse(data)[0].text
