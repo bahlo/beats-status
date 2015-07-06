@@ -25,7 +25,9 @@ function fetchBeats1Track(callback) {
       if (e != null) {
         callback('Error: ' + e);
       } else {
-        var track = JSON.parse(data)[0].text.replace('#beats1', '');
+        var track = JSON.parse(data)[0].text
+          .replace('#beats1', '')
+          .replace(/\shttps?:\/\/t.co\/\w+/, '');
         callback(null, prefix + track);
       }
     }
