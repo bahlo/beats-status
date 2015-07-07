@@ -78,7 +78,7 @@ function fetchiTunesTrack(callback) {
 fetchiTunesTrack(function(err, iTunesTrack) {
   if (err) {
     console.log("Error:", err);
-  } else if (iTunesTrack != "") {
+  } else if (iTunesTrack != "" && iTunesTrack != 'Beats 1 -') {
     console.log(iTunesTrack);
   }
   fetchBeats1Track(function(err, beatsTrack) {
